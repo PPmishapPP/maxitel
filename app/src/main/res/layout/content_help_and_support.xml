@@ -27,13 +27,29 @@
             android:text="@string/o_kompanii_info"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <Button
-            android:id="@+id/button3"
-            style="@style/MaxiTelSmallButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <LinearLayout
             android:layout_gravity="right"
-            android:text="@string/call" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/requestСall"
+                style="@style/MaxiTelSmallButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/request_call" />
+
+            <Button
+                android:id="@+id/button3"
+                style="@style/MaxiTelSmallButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/call" />
+
+
+
+        </LinearLayout>
+
 
         <View
             android:layout_width="match_parent"

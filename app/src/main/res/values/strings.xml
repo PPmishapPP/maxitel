@@ -309,6 +309,7 @@
     <string name="nastroika_po">Настройка ПО</string>
     <string name="o_kompanii">О компании</string>
     <string name="call">Позвонить</string>
+    <string name="request_call">Заказать звонок</string>
     <string name="srazu_v_pc">Сразу в компьютер</string>
     <string name="v_router">в роутер (маршрутизатор)</string>
     <string name="question_0">Кабель, который идёт из подъезда включен…</string>
