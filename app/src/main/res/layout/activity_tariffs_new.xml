@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="ru.maxitel.lk.TariffsActivityNew">
+
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button8"
+                style="@style/MaxiTelTariffButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:text="Солнечный" />
+
+            <Button
+                android:id="@+id/button9"
+                style="@style/MaxiTelTariffButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:text="Сатурн" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button10"
+                style="@style/MaxiTelTariffButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:text="Нептун" />
+
+            <Button
+                android:id="@+id/button11"
+                style="@style/MaxiTelTariffButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:text="Уран" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        style="@style/MaxitTelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tableLayout"
+        android:layout_centerHorizontal="true"
+        android:text="Солнечный"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="5dp"
+                        android:alpha="0.6"
+                        android:background="@drawable/ic_payment_black_48dp"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:alpha="0.8"
+                        android:text="@string/abonent_pay"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/tariff_price1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:layout_margin="5dp"
+                        android:paddingLeft="2dp"
+                        android:text="Medium Text"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        tools:ignore="RtlHardcoded,RtlSymmetry" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorAccent" />
+                </TableRow>
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="5dp"
+                        android:alpha="0.6"
+                        android:background="@drawable/ic_speed" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:alpha="0.8"
+                        android:text="@string/speed"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/speedTextView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:layout_margin="5dp"
+                        android:text="Medium Text"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorAccent" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="5dp"
+                        android:alpha="0.6"
+                        android:background="@drawable/ic_tv_black_48dp"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:alpha="0.8"
+                        android:text="@string/tv"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/tvTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:layout_margin="5dp"
+                        android:paddingLeft="2dp"
+                        android:text="@string/bolee_60_kan"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        tools:ignore="RtlHardcoded,RtlSymmetry" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorAccent" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="5dp"
+                        android:alpha="0.6"
+                        android:background="@drawable/ic_settings_backup_restore_black_48dp"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:alpha="0.8"
+                        android:text="@string/promised_payment"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/PromisedPaymentTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:layout_margin="5dp"
+                        android:paddingLeft="2dp"
+                        android:text="@string/haur"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        tools:ignore="RtlHardcoded,RtlSymmetry" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorAccent" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="5dp"
+                        android:alpha="0.6"
+                        android:background="@drawable/ic_playlist_add_black_48dp"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:alpha="0.8"
+                        android:text="@string/new_tariff"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/add_tariff_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:paddingLeft="2dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        tools:ignore="RtlHardcoded,RtlSymmetry" />
+                </TableRow>
+            </TableLayout>
+
+            <Button
+                android:id="@+id/addTariffButton"
+                style="@style/MaxiTelSmallButton"
+                android:textSize="12sp"
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/run_tariff"
+                android:layout_gravity="right" />
+
+        </LinearLayout>
+
+
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

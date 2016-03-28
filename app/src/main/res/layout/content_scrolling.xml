@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nestedScrollMaxitel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:drawable/screen_background_light_transparent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relativeLayout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Фамлия Имя Отчество"
+                android:id="@+id/userNameTextView"
+                style="@style/MaxitTelTextView"
+                tools:ignore="HardcodedText"
+                android:layout_margin="5dp" />
+
+            <TextView
+                android:id="@+id/balanceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Баланс: 999р"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/colorPrimaryDark"
+                tools:ignore="HardcodedText,RtlHardcoded"
+                android:layout_below="@+id/userNameTextView"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/tariffTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Тариф: Сатурн"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/colorPrimaryDark"
+                tools:ignore="HardcodedText,RtlHardcoded"
+                android:layout_below="@+id/balanceTextView"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/loginTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Договор № 666"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/colorPrimaryDark"
+                tools:ignore="HardcodedText,RtlHardcoded"
+                android:layout_below="@+id/tariffTextView"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/inet_on"
+                android:id="@+id/statusTextView"
+                android:drawableTop="@drawable/ic_av_play_circle_outline"
+                tools:ignore="RtlHardcoded"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="false"
+                android:layout_toRightOf="@+id/loginTextView"
+                android:layout_toEndOf="@+id/loginTextView"
+                android:layout_alignTop="@+id/balanceTextView"
+                android:layout_alignBottom="@+id/loginTextView"
+                android:gravity="center" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <TextView
+                style="@style/MaxiTelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/pay_naw"
+                android:drawableTop="@drawable/ic_payment_white_36dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="@string/pay_naw"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                 />
+
+            <TextView
+                style="@style/MaxiTelButton"
+                android:id="@+id/newsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_home_white_48dp"
+                android:gravity="center"
+                android:text="@string/home"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                 />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/MaxiTelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/tariffs_textView"
+
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_list_white_48dp"
+                android:text="@string/tariffs"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                 />
+
+            <TextView
+                style="@style/MaxiTelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/servicesTextView"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_add_circle_white_48dp"
+                android:text="@string/services"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                 />
+
+        </LinearLayout>
+
+
+        <TextView
+            style="@style/MaxiTelButton"
+            android:id="@+id/tv_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:drawableTop="@drawable/ic_tv_white_48dp"
+            android:text="@string/tv"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+             />
+
+        <TextView
+            style="@style/MaxiTelButton"
+            android:id="@+id/helpAndSupportTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:drawableTop="@drawable/ic_settings_white_48dp"
+            android:text="@string/help"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+             />
+        <Button
+            style="@style/MaxiTelSmallButton"
+            android:id="@+id/exitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="@string/exit"
+            tools:ignore="RtlHardcoded" />
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

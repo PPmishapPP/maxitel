@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:drawable/screen_background_light_transparent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/hint"
+            android:id="@+id/userNameTextView"
+            android:layout_margin="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/promisedPaymentTextView"
+                style="@style/MaxiTelButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_payment_white_36dp"
+                android:gravity="center"
+                android:text="@string/promised_payment"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/background_light" />
+
+            <TextView
+                android:id="@+id/voluntarilyLockedTextView"
+                style="@style/MaxiTelButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_block_white_48dp"
+                android:gravity="center"
+                android:text="@string/voluntarily_locked"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/background_light" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/newTariffTextView"
+                style="@style/MaxiTelButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_list_white_48dp"
+                android:gravity="center"
+                android:text="@string/tariffs"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/background_light" />
+
+            <TextView
+                android:id="@+id/historyPayment"
+                style="@style/MaxiTelButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_history_white_48dp"
+                android:gravity="center"
+                android:text="@string/history_payment"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/background_light" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="10dp"
+            android:background="@color/colorAccent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/nastroika_po"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/nastroika_po_info"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

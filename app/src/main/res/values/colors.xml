@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF9800</color>
+    <color name="colorPrimaryLight">#FFB74D</color>
+    <color name="colorPrimaryDark">#F57C00</color>
+    <color name="colorAccent">#3F51B5</color>
+    
+    <color name="sun">#FFC107</color>
+    <color name="saturn">#673AB7</color>
+    <color name="neptune">#2196F3</color>
+    <color name="uranus">#009688</color>
+    <color name="unknown">#795548</color>
+</resources>
