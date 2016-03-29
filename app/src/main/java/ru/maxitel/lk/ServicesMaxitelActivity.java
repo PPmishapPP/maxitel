@@ -2,6 +2,7 @@ package ru.maxitel.lk;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -23,12 +24,12 @@ public class ServicesMaxitelActivity extends AppCompatActivity {
                 startActivity(new Intent(ServicesMaxitelActivity.this, PaymentActivity.class));
             }
         });
-        //кнопка тарифы
+        //кнопка упровление счётом
         TextView tariffsTextView = (TextView) findViewById(R.id.newTariffTextView);
         tariffsTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ServicesMaxitelActivity.this, TariffsActivityNew.class));
+                Snackbar.make(v, R.string.service_in_development, Snackbar.LENGTH_LONG).show();
             }
         });
         //кнопка обещаный платёж

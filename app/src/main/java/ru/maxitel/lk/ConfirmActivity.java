@@ -1,16 +1,21 @@
 package ru.maxitel.lk;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import ru.maxitel.lk.connects.PromisedPaymentConnect;
+import ru.maxitel.lk.connects.RequestCallConnect;
 import ru.maxitel.lk.connects.TariffChangeConnect;
 import ru.maxitel.lk.connects.VoluntaryLocked;
 import ru.maxitel.lk.connects.VoluntaryUnLocked;
@@ -23,6 +28,7 @@ public class ConfirmActivity extends AppCompatActivity {
     public static final String TARIFF_CHANGE = "Tariff change";
     public static final String PROMISED_PAYMENT = "promised payment";
     public static final String VOLUNTARY_LOCKED = "voluntary_locked";
+    public static final String REQUEST_CALL = "request call";
     public static final String UNBLOCK = "unblock";
 
 
@@ -49,7 +55,11 @@ public class ConfirmActivity extends AppCompatActivity {
         switch (action){
             case TARIFF_CHANGE:
                 final Tariff newTariff = Tariffs.getTarif(intent.getStringExtra(TARIFF_CHANGE));
-                getSupportActionBar().setTitle(newTariff.getName());
+
+                ActionBar actionBar = getSupportActionBar();
+                if (actionBar!=null) {
+                    getSupportActionBar().setTitle(newTariff.getName());
+                }
 
                 if (User.isBlockInternet() || User.isVoluntarilyLocked()){
                     bodyTextView.setText(R.string.dont_change);
@@ -89,7 +99,9 @@ public class ConfirmActivity extends AppCompatActivity {
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        new VoluntaryLocked(ConfirmActivity.this).execute((Void)null);
+                        if (confirmCheckBox.isChecked()) {
+                            new VoluntaryLocked(ConfirmActivity.this).execute((Void) null);
+                        }
                     }
                 });
                 break;
@@ -99,7 +111,28 @@ public class ConfirmActivity extends AppCompatActivity {
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        new VoluntaryUnLocked(ConfirmActivity.this).execute((Void)null);
+                        if (confirmCheckBox.isChecked()) {
+                            new VoluntaryUnLocked(ConfirmActivity.this).execute((Void) null);
+                        }
+                    }
+                });
+                break;
+            case REQUEST_CALL:
+                TelephonyManager tMgr = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+                final EditText phoneEditText = (EditText) findViewById(R.id.telNuber);
+                String phoneNumber = tMgr.getLine1Number();
+                if (phoneNumber.length()>0) phoneEditText.setText(phoneNumber);
+                else phoneEditText.setText("+7");
+                findViewById(R.id.customTelNumber).setVisibility(View.VISIBLE);
+                bodyTextView.setText(R.string.request_call_info);
+                button.setText(R.string.next);
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (confirmCheckBox.isChecked()) {
+                            new RequestCallConnect(ConfirmActivity.this, phoneEditText.getText().toString()).execute((Void) null);
+                            finish();
+                        }
                     }
                 });
 

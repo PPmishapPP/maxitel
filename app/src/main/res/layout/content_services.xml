@@ -67,9 +67,9 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_list_white_48dp"
+                android:drawableTop="@drawable/ic_attach_money_white_48dp"
                 android:gravity="center"
-                android:text="@string/tariffs"
+                android:text="@string/finances"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@android:color/background_light" />
 

@@ -32,7 +32,7 @@ public class MiniMaxitelWidget extends MaxitelWidget {
         appWidgetManager.updateAppWidget(appWidgetIds, views);
 
         if (initCookies(context)) {
-            WidgetConnect widgetConnect = new WidgetConnect(this, cookies, context, appWidgetManager);
+            WidgetConnect widgetConnect = new WidgetConnect(this, cookies, context, appWidgetManager,views);
             widgetConnect.execute((Void)null);
         }
     }
@@ -48,23 +48,19 @@ public class MiniMaxitelWidget extends MaxitelWidget {
 
                 views.setTextViewText(R.id.widgetBalanceTextView, ".....");
                 appWidgetManager.updateAppWidget(thisWiget, views);
-                WidgetConnect widgetConnect = new WidgetConnect(this, cookies, context, appWidgetManager);
+                WidgetConnect widgetConnect = new WidgetConnect(this, cookies, context, appWidgetManager, views);
                 widgetConnect.execute((Void) null);
             }
         }
         super.onReceive(context, intent);
     }
 
-    public void postConnect(Context context, AppWidgetManager appWidgetManager, String params[]){
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.new_app_widget);
+    public void postConnect(Context context, AppWidgetManager appWidgetManager, String params[], RemoteViews views){
+
         CharSequence widgetText = params[0]+"р";
         views.setTextViewText(R.id.widgetBalanceTextView, widgetText);
-        ComponentName thisWiget = new ComponentName(context, MiniMaxitelWidget.class);
-
-        appWidgetManager.updateAppWidget(thisWiget, views);
-
+        ComponentName thisWidget = new ComponentName(context, MiniMaxitelWidget.class);
+        appWidgetManager.updateAppWidget(thisWidget, views);
     }
-
-
 }
 

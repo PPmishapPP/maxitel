@@ -3,6 +3,7 @@ package ru.maxitel.lk.connects;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.RemoteViews;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -17,9 +18,7 @@ import java.util.Map;
 import ru.maxitel.lk.MaxitelWidget;
 import ru.maxitel.lk.User;
 
-/**
- * Created by Михаил on 01.03.2016.
- */
+
 public class WidgetConnect extends AsyncTask<Void,Void, Document> {
 
 
@@ -30,6 +29,7 @@ public class WidgetConnect extends AsyncTask<Void,Void, Document> {
     //Это просто передаём дальше после соединения
     private Context context;
     private AppWidgetManager appWidgetManager;
+    private RemoteViews views;
 
     @Override
     protected Document doInBackground(Void... params) {
@@ -45,7 +45,7 @@ public class WidgetConnect extends AsyncTask<Void,Void, Document> {
                 ConnectMyPC connectMyPC = new ConnectMyPC(socket);
                 connectMyPC.send("widget "+cookies.get("user_id")+ " " + cookies.get("user_login"));
                 return Jsoup.parse(connectMyPC.receive());
-            } catch (Exception e1) {
+            } catch (Exception ignored) {
             }
             return null;
         }
@@ -53,7 +53,7 @@ public class WidgetConnect extends AsyncTask<Void,Void, Document> {
     protected void onPostExecute(Document document) {
         super.onPostExecute(document);
         if (document != null) {
-            String balance="", login="", credit="", tariff="";
+            String balance="", login="", credit="", tariff;
 
             Elements elements = document.getElementsByClass("text2");
 
@@ -77,16 +77,17 @@ public class WidgetConnect extends AsyncTask<Void,Void, Document> {
             tariff = elements.get(1).text();
 
             String[] params = new String[]{balance,login,tariff,credit};
-            maxitelWidget.postConnect(context, appWidgetManager, params);
+            maxitelWidget.saveValuesAndPostConnect(context, appWidgetManager, views, params);
         }else {
-            maxitelWidget.loadValuesAndRunPostConnect(context, appWidgetManager);
+            maxitelWidget.loadValuesAndRunPostConnect(context, appWidgetManager, views);
         }
     }
 
-    public WidgetConnect(MaxitelWidget maxitelWidget, Map<String, String> cookies, Context context, AppWidgetManager appWidgetManager) {
+    public WidgetConnect(MaxitelWidget maxitelWidget, Map<String, String> cookies, Context context, AppWidgetManager appWidgetManager, RemoteViews views) {
         this.maxitelWidget = maxitelWidget;
         this.cookies = cookies;
         this.context = context;
         this.appWidgetManager = appWidgetManager;
+        this.views = views;
     }
 }

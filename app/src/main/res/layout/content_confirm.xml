@@ -25,6 +25,27 @@
             tools:ignore="RtlHardcoded"
             android:padding="10dp"
             android:gravity="center_horizontal" />
+
+        <android.support.design.widget.TextInputLayout
+            android:visibility="invisible"
+            android:id="@+id/customTelNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <EditText
+                android:text="+7"
+                android:id="@+id/telNuber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_telNumber"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:singleLine="true"
+                tools:ignore="HardcodedText" />
+        </android.support.design.widget.TextInputLayout>
+
         <CheckBox
             android:id="@+id/confirmCheckBox"
             android:layout_width="wrap_content"

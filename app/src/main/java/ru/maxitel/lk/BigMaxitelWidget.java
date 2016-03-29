@@ -28,26 +28,9 @@ public class BigMaxitelWidget extends MaxitelWidget {
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
 
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.big_maxitel_widget);
-        //Интенет для обновления виджета
-        Intent active = new Intent(context, BigMaxitelWidget.class);
-        active.setAction(BIG_WIDGET_UPDATE);
-        PendingIntent actionPendingIntent = PendingIntent.getBroadcast(context, 0, active, 0);
-        views.setOnClickPendingIntent(R.id.bUpdateImageView, actionPendingIntent);
+        ComponentName thisWidget = new ComponentName(context, BigMaxitelWidget.class);
+        runUpdateWidget(context, views, appWidgetManager, thisWidget);
 
-        //Интернет для запуска приложения
-        Intent intent = new Intent(context, LoginActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context,0,intent,0);
-        views.setOnClickPendingIntent(R.id.bBalanceTextView, pendingIntent);
-        views.setOnClickPendingIntent(R.id.bLogoImageView, pendingIntent);
-
-
-        if (initCookies(context)) {
-            new WidgetConnect(this, cookies, context, appWidgetManager).execute((Void) null);
-        }else {
-            views.setTextViewText(R.id.bBalanceTextView, context.getString(R.string.voidite));
-        }
-        new WeatherConnect(this, context).execute((Void) null);
-        appWidgetManager.updateAppWidget(appWidgetIds, views);
     }
 
     @Override
@@ -60,7 +43,10 @@ public class BigMaxitelWidget extends MaxitelWidget {
         intent.setAction(CLOCK);
         PendingIntent pIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
 
-        updateTime(context);
+        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.big_maxitel_widget);
+        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+        ComponentName thisWidget = new ComponentName(context, BigMaxitelWidget.class);
+        updateTime(context, views, appWidgetManager, thisWidget);
 
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.setRepeating(AlarmManager.RTC, time, 60000, pIntent);
@@ -68,33 +54,23 @@ public class BigMaxitelWidget extends MaxitelWidget {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+
+        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.big_maxitel_widget);
+        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+        ComponentName thisWidget = new ComponentName(context, BigMaxitelWidget.class);
+
         if(CLOCK.equals(intent.getAction())){
-           updateTime(context);
+           updateTime(context, views, appWidgetManager, thisWidget);
         }
         if(BIG_WIDGET_UPDATE.equals(intent.getAction())){
-            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.big_maxitel_widget);
-            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-            ComponentName thisWidget = new ComponentName(context, BigMaxitelWidget.class);
-
-            if(initCookies(context)) {
-                views.setTextViewText(R.id.bBalanceTextView, ".....");
-                new WidgetConnect(this, cookies, context, appWidgetManager).execute((Void) null);
-            }else {
-                views.setTextViewText(R.id.bBalanceTextView, context.getString(R.string.voidite));
-            }
-            appWidgetManager.updateAppWidget(thisWidget, views);
-            new WeatherConnect(this, context).execute((Void) null);
+           runUpdateWidget(context, views, appWidgetManager, thisWidget);
         }
         super.onReceive(context, intent);
     }
 
 
-
-    private void updateTime(Context context){
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.big_maxitel_widget);
-        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-        ComponentName thisWiget = new ComponentName(context, BigMaxitelWidget.class);
-
+//этот метод вызвается каждую минуту
+    private void updateTime(Context context, RemoteViews views, AppWidgetManager appWidgetManager, ComponentName thisWidget){
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK);
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
@@ -108,7 +84,19 @@ public class BigMaxitelWidget extends MaxitelWidget {
 
         views.setTextViewText(R.id.bDayOfWeekTextVeiw, getDayOfWeek(day,context));
         views.setTextViewText(R.id.bTimeTextView, sHour + ":" + sMin);
-        appWidgetManager.updateAppWidget(thisWiget, views);
+        loadValuesAndRunPostConnect(context, appWidgetManager, views);
+    }
+
+    private void runUpdateWidget(Context context, RemoteViews views, AppWidgetManager appWidgetManager, ComponentName thisWidget){
+        if(initCookies(context)) {
+            views.setTextViewText(R.id.bBalanceTextView, ".....");
+            appWidgetManager.updateAppWidget(thisWidget, views);
+            new WidgetConnect(this, cookies, context, appWidgetManager, views).execute((Void) null);
+        }else {
+            views.setTextViewText(R.id.bBalanceTextView, context.getString(R.string.voidite));
+            appWidgetManager.updateAppWidget(thisWidget, views);
+        }
+        new WeatherConnect(this, context).execute((Void) null);
     }
 
     private String getDayOfWeek(int day,Context context){
@@ -136,8 +124,7 @@ public class BigMaxitelWidget extends MaxitelWidget {
 
 
     @Override
-    public void postConnect(Context context, AppWidgetManager appWidgetManager, String[] params) {
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.big_maxitel_widget);
+    public void postConnect(Context context, AppWidgetManager appWidgetManager, String[] params, RemoteViews views) {
         CharSequence widgetText = params[0]+" руб.";
         String login = params[1];
         String tariff = params[2];
@@ -148,9 +135,22 @@ public class BigMaxitelWidget extends MaxitelWidget {
         views.setTextViewText(R.id.bPymentDay, getPayDays(tariff, balanceInt));
         views.setTextViewText(R.id.bLogin, login);
         views.setTextViewText(R.id.bTariff, tariff);
+
+        //интернет обновления
+        Intent active = new Intent(context, BigMaxitelWidget.class);
+        active.setAction(BIG_WIDGET_UPDATE);
+        PendingIntent actionPendingIntent = PendingIntent.getBroadcast(context, 0, active, 0);
+        views.setOnClickPendingIntent(R.id.bUpdateImageView, actionPendingIntent);
+
+        //Интернет для запуска приложения
+        Intent intent = new Intent(context, LoginActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context,0,intent,0);
+        views.setOnClickPendingIntent(R.id.bBalanceTextView, pendingIntent);
+        views.setOnClickPendingIntent(R.id.bLogoImageView, pendingIntent);
+
+
         ComponentName thisWiget = new ComponentName(context, BigMaxitelWidget.class);
         appWidgetManager.updateAppWidget(thisWiget, views);
-
     }
 
     private String getPayDays(String tariff, int balance){
@@ -167,5 +167,6 @@ public class BigMaxitelWidget extends MaxitelWidget {
             default:return "Оплачено "+day+" дней";
         }
     }
+
 }
 
