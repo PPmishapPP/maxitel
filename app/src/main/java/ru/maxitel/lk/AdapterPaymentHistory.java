@@ -4,12 +4,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-/**
- * Created by Михаил on 06.02.2016.
- */
+
 public class AdapterPaymentHistory extends RecyclerView.Adapter<AdapterPaymentHistory.ViewHolder> {
 
     private String[] payments;
@@ -28,25 +25,24 @@ public class AdapterPaymentHistory extends RecyclerView.Adapter<AdapterPaymentHi
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.paymentTextView.setText(payments[position]);
         if (payments[position].contains("Бонус") || payments[position].contains("кция")){
-            holder.imageView.setImageResource(R.drawable.gift);
+            holder.paymentTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.gift,0,0,0);
         }
         else if (payments[position].contains("услуги связи")){
-            holder.imageView.setImageResource(R.drawable.money);
+            holder.paymentTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.money,0,0,0);
         }
         else if (payments[position].contains("Мобильный плат")){
-            holder.imageView.setImageResource(R.drawable.pyament);
+            holder.paymentTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.pyament,0,0,0);
         }
         else if (payments[position].contains("-")){
-            holder.imageView.setImageResource(R.drawable.minus87);
+            holder.paymentTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.minus87,0,0,0);
         }
         else if(payments[position].contains("Кредит")){
-            holder.imageView.setImageResource(R.drawable.credit);
+            holder.paymentTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.credit,0,0,0);
         }
         //первая буква может быть и большой и маленькой, поэтому так
         else if(payments[position].contains("ерерасчет")){
-            holder.imageView.setImageResource(R.drawable.pereraschet);
+            holder.paymentTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.pereraschet,0,0,0);
         }
-        else holder.imageView.setImageResource(R.drawable.questions);
 
     }
 
@@ -58,11 +54,9 @@ public class AdapterPaymentHistory extends RecyclerView.Adapter<AdapterPaymentHi
 
     class ViewHolder extends RecyclerView.ViewHolder{
         private TextView paymentTextView;
-        private ImageView imageView;
         public ViewHolder(View itemView) {
             super(itemView);
             paymentTextView = (TextView) itemView.findViewById(R.id.paymentTextView);
-            imageView = (ImageView) itemView.findViewById(R.id.imageView2);
         }
     }
 

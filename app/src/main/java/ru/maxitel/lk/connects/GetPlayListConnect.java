@@ -11,11 +11,9 @@ import java.util.ArrayList;
 import ru.maxitel.lk.R;
 import ru.maxitel.lk.TvActivity;
 
-/**
- * Created by Михаил on 02.02.2016.
- */
+
 public class GetPlayListConnect extends AsyncTask<Void,Void,Void> {
-    private static final String URL = "http://www.prudok.ru/media/tv/playlist/prudoktv_playlist.m3u";
+    private static final String URL = "http://rlist.maxitel.ru/tv/iptv.m3u";
     private ArrayList<String> channels = new ArrayList<>();
     private ArrayList<String> urls = new ArrayList<>();
     TvActivity activity;
@@ -25,16 +23,21 @@ public class GetPlayListConnect extends AsyncTask<Void,Void,Void> {
 
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(new URL(URL).openStream()));
+
+            //так и долно быть!
             String s = reader.readLine();
+
             while ((s=reader.readLine())!=null) {
                 if (s.contains("<head>")){
                     channels.add(activity.getString(R.string.iptv_ne_v_seti));
                     break;
                 }
+                if (!s.contains("#EXTINF:")) continue;
                 channels.add(s.substring(s.indexOf(",") + 1));
                 urls.add(reader.readLine());
             }
             reader.close();
+            if (channels.size() == 0) channels.add(activity.getString(R.string.iptv_ne_v_seti));
         } catch (IOException e) {
             channels.add(activity.getString(R.string.iptv_ne_v_seti));
         }

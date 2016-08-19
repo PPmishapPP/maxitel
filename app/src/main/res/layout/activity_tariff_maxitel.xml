@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="ru.maxitel.lk.NewsActivity">
+    android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/app_bar_height"
+
         android:fitsSystemWindows="true"
+        android:layout_height="@dimen/app_bar_height"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.design.widget.CollapsingToolbarLayout
@@ -20,7 +19,7 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
+            app:layout_scrollFlags="scroll|snap">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -28,20 +27,25 @@
                 android:src="@drawable/baner1"
                 android:scaleType="centerCrop"
                 android:fitsSystemWindows="true"
+                app:layout_collapseMode="parallax"
                 tools:ignore="ContentDescription" />
-
             <android.support.v7.widget.Toolbar
-                android:id="@+id/maxitel_toolbar"
+                android:id="@+id/tariff_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
-
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
         </android.support.design.widget.CollapsingToolbarLayout>
+
     </android.support.design.widget.AppBarLayout>
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/tariffRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <include layout="@layout/news_content" />
 
+        </android.support.v7.widget.RecyclerView>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -127,7 +127,7 @@ public class BigMaxitelWidget extends MaxitelWidget {
     public void postConnect(Context context, AppWidgetManager appWidgetManager, String[] params, RemoteViews views) {
         CharSequence widgetText = params[0]+" руб.";
         String login = params[1];
-        String tariff = params[2];
+        String tariff = Tariffs.getTarif(params[2]).getName();
         String credit = params[3];
         int balanceInt = Integer.parseInt(params[0]);
 

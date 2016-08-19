@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="ru.maxitel.lk.NewsActivity">
+    android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
@@ -20,12 +19,12 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
+            app:layout_scrollFlags="scroll|snap">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/baner1"
+                android:src="@drawable/baner1land"
                 android:scaleType="centerCrop"
                 android:fitsSystemWindows="true"
                 tools:ignore="ContentDescription" />
@@ -41,7 +40,10 @@
     </android.support.design.widget.AppBarLayout>
 
 
-    <include layout="@layout/news_content" />
+    <include layout="@layout/content_scrolling_land" />
 
 
 </android.support.design.widget.CoordinatorLayout>
+
+
+

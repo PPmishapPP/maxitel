@@ -10,15 +10,6 @@
         android:id="@+id/newsLinerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <ProgressBar
-            style="?android:attr/progressBarStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/progressBar2"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:indeterminate="false" />
     </LinearLayout>
 
 

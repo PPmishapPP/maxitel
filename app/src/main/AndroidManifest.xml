@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <uses-feature
         android:name="android.hardware.telephony"
@@ -84,14 +84,20 @@
         <receiver android:name=".BigMaxitelWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="ru.maxitel.lk.CLOCK"/>
-                <action android:name="ru.maxitel.lk.BIG_WIDGET_UPDATE"/>
+                <action android:name="ru.maxitel.lk.CLOCK" />
+                <action android:name="ru.maxitel.lk.BIG_WIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/big_maxitel_wiget_info" />
         </receiver>
+
+        <activity
+            android:name=".TariffMaxitelActivity"
+            android:label="@string/title_activity_tariff_maxitel"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
     </application>
 
 </manifest>

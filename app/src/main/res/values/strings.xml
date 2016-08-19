@@ -57,14 +57,14 @@
     <string name="rub_add">"%dруб.</string>
     <string name="speed">Скорость</string>
     <string name="bolee_60_kan">Более 60\nканалов</string>
-    <string name="promised_payment">Обещанный платёж</string>
+    <string name="promised_payment">Кредит</string>
     <string name="haur">72 часа</string>
     <string name="new_tariff">Подключение тарифа</string>
     <string name="run_tariff">Подключить</string>
     <string name="confirm">Я согласен с условиями</string>
 
     <string name="change_tariff_info" translatable="false">"
-        Этот тарифный план вступает в силу начиная со следующего месяца.\n
+        Этот тарифный план вступает в силу начиная со следующего дня.\n
         При наступлении отрицательного баланса на лицевом счету абонента доступ в интернет блокируется, абонентская плата не снимается.\n
         Чтобы снова разблокировать интернет, Вам нужно положить на счет миниммум %d руб. (На месяц вперёд).\n
         На этом тарифе абонентская плата снимается не раз в месяц, а ежедневно равными долями. Примерно по %.2f руб. в день (зависит от количества дней в месяце).\n
@@ -72,13 +72,13 @@
     </string>
 
     <string name="credit_info" translatable="false">"
-        Услуга обещаный платёж платная - 20 рублей.\n
+        Услуга кредит платная - 30 рублей.\n
         Вам на счёт будет начислено %d руб. Через 3 дня эти средства спишуться.
     </string>
 
     <string name="voluntary_locked_info" translatable="false">"
         Добровольная блокировка - сервис, позволяющий временно (до 6 месяцев) приостановить обслуживание.\n
-        Стоимость услуги "Добровольная блокировка" 30 рублей.\n
+        Стоимость услуги "Добровольная блокировка" 50 рублей.\n
         Абонентская плата в этот период не снимается. Ваша абонентская линия остается абсолютно работоспособной. Выданные сетевые реквизиты удерживаются за абонентом."
     </string>
 
@@ -335,4 +335,9 @@
     <string name="email_head">Позвонить абоненту!!!</string>
     <string name="email_body" translatable="false">Абонент %s оставил заявку на звонок. т. %s \n\n Это тестове сообщение не нужно на него как то реагировать\n\n Миша РР</string>
     <string name="service_in_development">Сервис в разработке</string>
+    <string name="title_activity_tariff_maxitel">Тарифы</string>
+    <string name="diagnostika">Диагностика</string>
+    <string name="dont_work">Не работает интернет?</string>
+    <string name="dont_work_TV">Не работает телевидение?</string>
+    <string name="hepl">Помощь</string>
 </resources>

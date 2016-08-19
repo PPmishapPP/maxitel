@@ -4,34 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="ru.maxitel.lk.NewsActivity">
+    android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
+        android:id="@+id/app_bar_help"
         android:layout_width="match_parent"
         android:layout_height="@dimen/app_bar_height"
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/toolbar_layout"
+            android:id="@+id/toolbar_layout_help"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
+            app:layout_scrollFlags="scroll|snap">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/baner1"
+                android:src="@drawable/baner1land"
                 android:scaleType="centerCrop"
                 android:fitsSystemWindows="true"
                 tools:ignore="ContentDescription" />
 
             <android.support.v7.widget.Toolbar
-                android:id="@+id/maxitel_toolbar"
+                android:id="@+id/maxitel_toolbar_help"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
@@ -41,7 +40,7 @@
     </android.support.design.widget.AppBarLayout>
 
 
-    <include layout="@layout/news_content" />
+    <include layout="@layout/content_help_and_support" />
 
 
 </android.support.design.widget.CoordinatorLayout>

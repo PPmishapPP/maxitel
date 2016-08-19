@@ -11,7 +11,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -44,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
     public static final String APP_PREFERENCES = "cookies";
     public static final String APP_USER_ID = "user_id";
     public static final String APP_USER_LOGIN = "user_login";
+    public static final String APP_USER_SES = "user_ses";
     public static final String USER_LOGIN = "login";
     public static final String USER_BALANCE = "balance";
     public static final String USER_TARIFF = "tariff";
@@ -62,7 +62,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
         loginView = (EditText) findViewById(R.id.login);
@@ -77,8 +76,10 @@ public class LoginActivity extends AppCompatActivity {
             Map<String,String> cookies = new HashMap<>();
             String saveUserId = mSettings.getString(APP_USER_ID, "0");
             String saveUserLogin = mSettings.getString(APP_USER_LOGIN, "0");
+            String saveUserSes = mSettings.getString(APP_USER_SES, "0");
             cookies.put(APP_USER_ID, saveUserId);
             cookies.put(APP_USER_LOGIN, saveUserLogin);
+            cookies.put(APP_USER_SES, saveUserSes);
             User.setCookies(cookies);
             showProgressBar();
 
@@ -240,6 +241,7 @@ public class LoginActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = mSettings.edit();
                     editor.putString(APP_USER_ID, User.getCookies().get(APP_USER_ID));
                     editor.putString(APP_USER_LOGIN, User.getCookies().get(APP_USER_LOGIN));
+                    editor.putString(APP_USER_SES, User.getCookies().get(APP_USER_SES));
                     editor.apply();
                     //обновляем виджет
                     Intent active = new Intent(LoginActivity.this, BigMaxitelWidget.class);

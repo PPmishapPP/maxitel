@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import ru.maxitel.lk.connects.NewsConnect;
 
 public class NewsActivity extends AppCompatActivity {
@@ -29,8 +27,8 @@ public class NewsActivity extends AppCompatActivity {
 
     }
     //Этот метод вызывает NewsConnect при удачном соединении.
-    public void setNews(ArrayList<TextView> textViews){
-        for(TextView textView : textViews){
+    public void setNews(TextView textView){
+            findViewById(R.id.progressBar2).setVisibility(View.INVISIBLE);
             linearLayout.addView(textView);
             View divider = new View(this);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (1*dp));
@@ -40,8 +38,5 @@ public class NewsActivity extends AppCompatActivity {
             divider.setLayoutParams(params);
             divider.setBackgroundColor(getResources().getColor(R.color.colorAccent));
             linearLayout.addView(divider);
-        }
-    }
-    public void badNews(){
     }
 }

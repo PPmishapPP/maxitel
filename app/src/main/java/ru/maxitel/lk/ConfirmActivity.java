@@ -121,7 +121,9 @@ public class ConfirmActivity extends AppCompatActivity {
                 TelephonyManager tMgr = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
                 final EditText phoneEditText = (EditText) findViewById(R.id.telNuber);
                 String phoneNumber = tMgr.getLine1Number();
-                if (phoneNumber.length()>0) phoneEditText.setText(phoneNumber);
+                if(phoneNumber!=null) {
+                    if (phoneNumber.length() > 0) phoneEditText.setText(phoneNumber);
+                }
                 else phoneEditText.setText("+7");
                 findViewById(R.id.customTelNumber).setVisibility(View.VISIBLE);
                 bodyTextView.setText(R.string.request_call_info);

@@ -46,8 +46,10 @@ public abstract class MaxitelWidget extends AppWidgetProvider {
         if (mSettings.contains(LoginActivity.APP_USER_ID)&&mSettings.contains(LoginActivity.APP_USER_LOGIN)) {
             String saveUserId = mSettings.getString(LoginActivity.APP_USER_ID, "0");
             String saveUserLogin = mSettings.getString(LoginActivity.APP_USER_LOGIN, "0");
+            String saveUserSes = mSettings.getString(LoginActivity.APP_USER_SES, "0");
             cookies.put(LoginActivity.APP_USER_ID, saveUserId);
             cookies.put(LoginActivity.APP_USER_LOGIN, saveUserLogin);
+            cookies.put(LoginActivity.APP_USER_SES, saveUserSes);
             return true;
         }
         return false;

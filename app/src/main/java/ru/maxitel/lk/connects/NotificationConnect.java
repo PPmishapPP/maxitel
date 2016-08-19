@@ -29,7 +29,7 @@ public class NotificationConnect extends AsyncTask <Void, Void, String> {
     protected String doInBackground(Void... params) {
         try {
             //Это соединение только для того чтобы проверить добровольную блокировку.
-            Document document = Jsoup.connect("http://lk.prudok.ru/?a=19")
+            Document document = Jsoup.connect("http://lk.maxitel.ru/?a=19")
                     .cookies(cookies)
                     .execute()
                     .parse();
@@ -41,7 +41,7 @@ public class NotificationConnect extends AsyncTask <Void, Void, String> {
                 return "block";
             }
 
-            document = Jsoup.connect("http://lk.prudok.ru/cookie.php")
+            document = Jsoup.connect("http://lk.maxitel.ru/cookie.php")
                     .cookies(cookies)
                     .execute()
                     .parse();

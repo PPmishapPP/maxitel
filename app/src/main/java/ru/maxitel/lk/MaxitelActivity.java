@@ -127,7 +127,7 @@ public class MaxitelActivity extends AppCompatActivity {
         tariffTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MaxitelActivity.this, TariffsActivityNew.class));
+                startActivity(new Intent(MaxitelActivity.this, TariffMaxitelActivity.class));
             }
         });
 

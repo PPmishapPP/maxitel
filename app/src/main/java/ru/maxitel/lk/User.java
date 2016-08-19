@@ -6,8 +6,8 @@ import java.util.Map;
 public class User {
 
     //В NotificationConnect ссылка прописана отдельно!!
-    public static final String URL="http://lk.prudok.ru";
-    public static final String URL_FOR_NEWS="http://www.prudok.ru";
+    public static final String URL="http://lk.maxitel.ru";
+    public static final String URL_FOR_NEWS="http://www.maxitel.ru";
 
 
 
